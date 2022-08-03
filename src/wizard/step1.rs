@@ -1,7 +1,7 @@
 
 use inquire::Select;
 
-use std::{str::FromStr, fs::OpenOptions};
+use std::{str::FromStr};
 use strum_macros::{EnumString, Display};
 
 #[derive(Debug, PartialEq, EnumString, Display)]
