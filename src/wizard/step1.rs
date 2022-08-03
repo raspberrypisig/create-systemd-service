@@ -1,16 +1,6 @@
-
+use crate::choices::step1::Options;
 use inquire::Select;
-
 use std::{str::FromStr};
-use strum_macros::{EnumString, Display};
-
-#[derive(Debug, PartialEq, EnumString, Display)]
-enum Options {
-    #[strum(serialize="Give me systemd service file quickly!")]
-    Simple,
-    #[strum(serialize="Give me systemd service file with bells and whisles")]
-    BellsAndWhistles
-}
 
 pub fn simple_or_complex_mode() {
     /*let options = vec![
