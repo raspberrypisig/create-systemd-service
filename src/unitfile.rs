@@ -1,6 +1,7 @@
 use serde::Serialize;
 
 #[derive(Default, Debug, Serialize)]
+#[serde(rename_all = "PascalCase")] 
 pub struct Unit {
     #[serde(skip_serializing)]
     pub name: String,
@@ -10,16 +11,19 @@ pub struct Unit {
 }
 
 #[derive(Default, Debug, Serialize)]
+#[serde(rename_all = "PascalCase")] 
 pub struct Service {
     pub exec_start: String
 }
 
 #[derive(Default, Debug, Serialize)]
+#[serde(rename_all = "PascalCase")] 
 pub struct Install {
     pub wanted_by: String
 }
 
 #[derive(Default, Debug, Serialize)]
+#[serde(rename_all = "PascalCase")] 
 pub struct UnitFile {
     pub unit: Unit,
     pub service: Service,
