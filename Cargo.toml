@@ -7,6 +7,7 @@ edition = "2021"
 
 [dependencies]
 inquire = "0.2.1"
+serde = { version = "1.0.142", features = ["derive"] }
 serde_ini = "0.2.0"
 strum = { version = "0.24", features = ["derive"] }
 strum_macros = "0.24"

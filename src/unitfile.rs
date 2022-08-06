@@ -1,30 +1,34 @@
+use serde::Serialize;
 
-#[derive(Default, Debug)]
+#[derive(Default, Debug, Serialize)]
 pub struct Unit {
+    #[serde(skip_serializing)]
+    pub name: String,
     pub description: String,
-    pub after: Option<String>,
-    pub wants: Option<String>
+    pub after: String,
+    pub wants: String
 }
 
-#[derive(Default, Debug)]
+#[derive(Default, Debug, Serialize)]
 pub struct Service {
-    execStart: String
+    pub exec_start: String
 }
 
-#[derive(Default, Debug)]
+#[derive(Default, Debug, Serialize)]
 pub struct Install {
-    wantedBy: String
+    pub wanted_by: String
 }
 
-#[derive(Default, Debug)]
+#[derive(Default, Debug, Serialize)]
 pub struct UnitFile {
-    unit: Unit,
-    service: Service,
-    install: Install
+    pub unit: Unit,
+    pub service: Service,
+    pub install: Install
 }
 
 impl UnitFile {
-    fn create_unit_file() {
-
+    pub fn new(u: Unit, s:Service, i: Install) -> Self {
+       Self { unit: u, service: s, install: i }
     }
 }
+
