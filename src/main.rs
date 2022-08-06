@@ -1,8 +1,11 @@
 mod wizard;
 mod choices;
+mod unitfile;
 
-use wizard::step1::simple_or_complex_mode;
+//use unitfile::UnitFile;
+mod cli_controller;
 
 fn main() {
-    simple_or_complex_mode();
+    cli_controller::run();
+    //let unit_file = UnitFile::default();
 }

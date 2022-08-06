@@ -1,12 +1,10 @@
+use std::str::FromStr;
+
 use crate::choices::step1::Options;
 use inquire::Select;
-use std::{str::FromStr};
+//use std::{str::FromStr};
 
-pub fn simple_or_complex_mode() {
-    /*let options = vec![
-        "Give me systemd service file quickly!",
-        "Give me systemd service file with bells and whisles",
-    ];*/
+pub fn simple_or_complex_mode() -> Options {
     let options:Vec<String>= vec![
         Options::Simple.to_string(),
         Options::BellsAndWhistles.to_string()
@@ -16,12 +14,7 @@ pub fn simple_or_complex_mode() {
         "How would you like to create your systemd unit file?",
         options,
     )
-    .prompt();
-    match ans {
-        Ok(answer) => match Options::from_str(&answer) {
-            Ok(val) => println!("{}", &val.to_string()),
-            Err(_) => (),
-        },
-        Err(_) => println!("Don't know which mode you want"),
-    }
+    .prompt().unwrap();
+
+    Options::from_str(&ans).unwrap()
 }
