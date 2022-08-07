@@ -12,8 +12,9 @@ pub fn simple_or_complex_mode() -> Options {
 
     let ans = Select::new(
         "How would you like to create your systemd unit file?",
-        options,
+        options
     )
+    .without_help_message()
     .prompt().unwrap();
 
     Options::from_str(&ans).unwrap()
